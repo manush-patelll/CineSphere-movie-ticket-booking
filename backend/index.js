@@ -23,12 +23,22 @@ const verifyEmailRouter = require("./routes/verifyEmail");
 dotenv.config();
 connectDB();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://10.221.191.123:5173",  // Add your current dev IP
+  "https://your-vercel-frontend-url.vercel.app" // Add production frontend too if needed
+];
+
 const app = express();
 app.use(
-  cors({
-    origin: "http://localhost:5173", // Change this to your frontend URL
-    credentials: true, // ✅ Allows cookies to be sent
-  })
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 );
 
 console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
