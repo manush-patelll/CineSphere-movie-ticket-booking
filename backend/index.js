@@ -30,7 +30,7 @@ const allowedOrigins = [
 ];
 
 const app = express();
-app.use(
+app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -39,8 +39,7 @@ app.use(
     }
   },
   credentials: true
-);
-
+}));
 console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
 
 app.use(express.json());
