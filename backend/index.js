@@ -26,7 +26,7 @@ connectDB();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://10.221.191.123:5173",  // Add your current dev IP
-  "https://your-vercel-frontend-url.vercel.app" // Add production frontend too if needed
+  "https://https://cine-sphere-movie-ticket-booking.vercel.app/" // Add production frontend too if needed
 ];
 
 const app = express();
