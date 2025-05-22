@@ -31,13 +31,8 @@ const allowedOrigins = [
 
 const app = express();
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: 'https://cine-sphere-movie-ticket-booking.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
