@@ -29,9 +29,9 @@ const MovieDetail = () => {
         const movieData = response.data.data[0];
         console.log(movieData.cast);
         setMovie(movieData);
-        setPoster(`https://github.com/manush-patelll/CineSphere-movie-ticket-booking/movieImages/${movieData.fileName}`);
+        setPoster(`https://raw.githubusercontent.com/manush-patelll/CineSphere-movie-ticket-booking/refs/heads/main/backend/movieImages/${movieData.fileName}`);
         setBgPoster(
-          `https://github.com/manush-patelll/CineSphere-movie-ticket-booking/movieImages/${movieData.bgPosterName}`
+          `https://raw.githubusercontent.com/manush-patelll/CineSphere-movie-ticket-booking/refs/heads/main/backend/movieImages/${movieData.bgPosterName}`
         );
       } catch (err) {
         console.error("Error fetching movie:", err);
