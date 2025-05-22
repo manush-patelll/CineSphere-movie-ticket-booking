@@ -5,7 +5,7 @@ const MovieCard = (props) => {
   const navigate = useNavigate();
   console.log(props.genres);
   console.log(props.image);
-  const imagePath = "http://localhost:5000/movieImages/" + props.image;
+  const imagePath = "https://github.com/manush-patelll/CineSphere-movie-ticket-booking/movieImages/" + props.image;
   console.log(imagePath);
   const handleMovieDetail = () => {
     navigate(`/movieDetails/${props.id}`);
