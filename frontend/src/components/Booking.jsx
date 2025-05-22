@@ -48,7 +48,7 @@ const Booking = () => {
     const { amount, id: order_id, currency } = result.data;
 
     const options = {
-      key: "rzp_test_192IjRvDDs7Dou",
+      key: process.env.RAZORPAY_KEY_ID,
       amount,
       currency,
       name: "CeneSphere",
