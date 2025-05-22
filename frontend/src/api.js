@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000", // your backend URL
+  baseURL: "https://cinesphere-movie-ticket-booking-backend.onrender.com/", // your backend URL
 });
 
 // Add a request interceptor to include JWT token
