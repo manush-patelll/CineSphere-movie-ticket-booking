@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import MovieForm from "./MovieForm";
 import ShowtimeForm from "./ShowTimeForm";
 import { getAllMovies } from "../../services/movieService";
-import axios from "axios";
+import axios from "../src/api";
 import Loading from "../components/Loading";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -26,8 +26,8 @@ const AdminPanel = () => {
           navigate("/");
         }
         const movie = await getAllMovies();
-        const screens = await axios.get("http://localhost:5000/screens");
-        const showtime = await axios.get("http://localhost:5000/showtimes");
+        const screens = await axios.get("/screens");
+        const showtime = await axios.get("/showtimes");
 
         setMovies(movie.data.data);
         setScreens(screens.data);
@@ -46,7 +46,7 @@ const AdminPanel = () => {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/movies",
+        "/movies",
         newMovie
       );
       const data = await response.data.data;
@@ -62,7 +62,7 @@ const AdminPanel = () => {
     try {
       setIsLoading(true);
       const response = await axios.put(
-        `http://localhost:5000/movies/${selectedMovie._id}`,
+        `/movies/${selectedMovie._id}`,
         updatedMovie
       );
       const data = response.data;
@@ -80,7 +80,7 @@ const AdminPanel = () => {
     try {
       setIsLoading(true);
       if (!window.confirm("Confirm to delete Movie ?")) return;
-      await axios.delete(`http://localhost:5000/movies/${id}`);
+      await axios.delete(`/movies/${id}`);
       setMovies(movies.filter((m) => m._id !== id));
     } catch (error) {
       console.log(error);
@@ -92,7 +92,7 @@ const AdminPanel = () => {
   const handleAddShowtime = async (newShowtime) => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/showtimes",
+        "/showtimes",
         newShowtime
       );
       setShowtimes([...showtimes, result.data]);
@@ -104,7 +104,7 @@ const AdminPanel = () => {
   const handleDeleteShowtime = async (id) => {
     setIsLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/showtimes/${id}`);
+      await axios.delete(`/showtimes/${id}`);
       setShowtimes(showtimes.filter((s) => s._id !== id));
     } catch (error) {
       console.log(error);
