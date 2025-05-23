@@ -48,7 +48,7 @@ const Booking = () => {
     const { amount, id: order_id, currency } = result.data;
     console.log("Razorpay Key:", process.env.REACT_APP_RAZORPAY_KEY_ID);
     const options = {
-      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+      key: "rzp_test_t45naGMpFdUPBg",
       amount,
       currency,
       name: "CineSphere",
