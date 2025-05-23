@@ -88,87 +88,116 @@ const MovieDetail = () => {
 
   return (
     <>
-      <section
-        className="h-[60vh] mt-7 bg-cover bg-center z-0 relative"
-        style={{ backgroundImage: `url(${bgPoster})` }}
-      >
-        <div className=" h-[60vh] bg-gradient-to-r from-[#000000]/90 via-[#1A1A1A]/90 to-[#ffffff]/30 custom-gradient z-10"></div>
-        <div className="absolute top-4 left-4 flex">
-          <div className="ml-[5vw]">
-            <img
-              src={moviePoster}
-              alt=""
-              className="h-100  rounded-2xl hover:scale-105 transition duration-200"
-            />
-          </div>
-          <div className="ml-[3vw]">
-            <h1 className="text-4xl text-yellow-100 mt-10 mb-5">
-              {movie.title}
-            </h1>
-            <div className="bg-amber-50/30 cursor-pointer p-1 mb-5 w-15 text-center rounded-2xl">
-              Hindi
+      {/* Hero Section with Content Container Background */}
+      <section className="relative pt-16 md:pt-24">
+        {/* Content Container with Background Image and Gradient */}
+        <div
+          className="container mx-auto px-4 relative rounded-xl overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9), rgba(255, 255, 255, 0.3)), url(${bgPoster})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "300px",
+          }}
+        >
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 p-6 md:p-8">
+            {/* Movie Poster - Responsive sizing */}
+            <div className="w-32 md:w-1/4 max-w-xs shrink-0">
+              <img
+                src={moviePoster}
+                alt={movie.title}
+                className="w-full h-auto rounded-xl md:rounded-2xl shadow-lg"
+              />
             </div>
 
-            <div
-              onClick={() => setShowReviewModal(true)}
-              className="text-amber-50 mb-5 min-w-30 sm:flex bg-[#8999a8]/30 h-20 sm:h-auto w-[22vw] max-w-70 rounded-xl cursor-pointer hover:scale-105 transition duration-100"
-            >
-              <div className="mt-3 sm:my-auto ml-1">⭐{movie.rating}/5</div>
-              <div className="mx-auto mt-3 mb-3 sm:mr-3 sm:ml-auto rounded-xl text-center content-center bg-[#5C7285] h-8 w-24">
-                Rate Now
+            {/* Movie Info */}
+            <div className="text-white flex-1">
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">
+                {movie.title}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-2 mb-3 md:mb-4">
+                <span className="bg-amber-50/30 px-2 py-1 text-xs md:text-sm rounded-2xl">
+                  Hindi
+                </span>
+                <span className="text-xs md:text-sm text-gray-300">
+                  {movie.duration}m • {movie.generes.join(" | ")} •{" "}
+                  {formatTime(movie.releaseDate)}
+                </span>
               </div>
+
+              <div
+                onClick={() => setShowReviewModal(true)}
+                className="flex items-center gap-2 mb-4 md:mb-6 p-2 bg-[#8999a8]/30 rounded-xl w-fit cursor-pointer hover:scale-105 transition duration-100"
+              >
+                <span>⭐{movie.rating}/5</span>
+                <span className="bg-[#5C7285] px-3 py-1 rounded-lg text-sm">
+                  Rate Now
+                </span>
+              </div>
+
+              <button
+                onClick={handleSubmit}
+                className="px-4 py-2 text-sm md:text-base rounded-xl bg-[#5C7285] hover:scale-105 transition duration-100"
+              >
+                Book Now
+              </button>
             </div>
-            <div className="text-amber-50 mb-10">
-              {movie.duration}m -- {movie.generes.join(" | ")} --{" "}
-              {formatTime(movie.releaseDate)}
-            </div>
-            <button
-              onClick={handleSubmit}
-              className="w-25 h-8 text-amber-50 rounded-xl bg-[#5C7285] cursor-pointer hover:scale-105 transition duration-100"
-            >
-              Book Now
-            </button>
           </div>
         </div>
       </section>
 
-      <div className="mt-10">
-        <div className="ml-18 border-l-2 border-l-amber-50  ">
-          <h2 className="text-3xl ml-3 font-bold mb-10 text-[#E2E0C8]">
-            About Movie
-          </h2>
+      {/* Movie Details Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+          <div className="border-l-2 border-l-amber-50 pl-3 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-[#E2E0C8]">
+              About Movie
+            </h2>
+          </div>
+          <p className="text-amber-50 text-sm md:text-base">
+            {movie.discription}
+          </p>
         </div>
-        <p className="text-amber-50 ml-18 mr-10">{movie.discription}</p>
 
-        <div className="ml-18 mt-10 border-l-2 border-l-amber-50  ">
-          <h2 className="text-3xl ml-3 font-bold mb-10 text-[#E2E0C8]">
-            Casts
-          </h2>
+        <div>
+          <div className="border-l-2 border-l-amber-50 pl-3 mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-[#E2E0C8]">
+              Casts
+            </h2>
+          </div>
+          <p className="text-amber-50 text-sm md:text-base">
+            {movie.cast.join(" • ")}
+          </p>
         </div>
-        <p className="text-amber-50 ml-18 mr-10">{movie.cast.join(" | ")}</p>
-      </div>
-      <Reviews movieId={movieId} />
+      </section>
 
+      {/* Reviews Section */}
+      <section className="container mx-auto px-4 pb-8">
+        <Reviews movieId={movieId} />
+      </section>
+
+      {/* Review Modal */}
       {showReviewModal && (
-        <div className="fixed inset-0 bg-amber-100/20 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl w-[90vw] max-w-md text-black relative">
+        <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4">
+          <div className="bg-white p-6 rounded-xl w-full max-w-md relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setShowReviewModal(false)}
               className="absolute top-2 right-3 text-lg font-bold cursor-pointer"
             >
               ✕
             </button>
-            <h3 className="text-xl font-bold mb-4">
-              Rate and Review for {movie.title}
+            <h3 className="text-lg md:text-xl font-bold mb-4">
+              Rate and Review {movie.title}
             </h3>
             <form>
-              <label className="block mb-2">Rating:</label>
+              <label className="block mb-2 text-sm md:text-base">Rating:</label>
               <div className="flex space-x-1 mb-4">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg
                     key={star}
                     onClick={() => setSelectedRating(star)}
-                    className={`w-8 h-8 cursor-pointer ${
+                    className={`w-6 h-6 md:w-8 md:h-8 cursor-pointer ${
                       selectedRating >= star
                         ? "text-yellow-400"
                         : "text-gray-300"
@@ -182,19 +211,19 @@ const MovieDetail = () => {
                 ))}
               </div>
 
-              <label className="block mb-2">Review:</label>
+              <label className="block mb-2 text-sm md:text-base">Review:</label>
               <textarea
                 name="review"
                 rows="3"
                 required
-                className="border w-full p-2 mb-4 rounded"
+                className="border w-full p-2 mb-4 rounded text-sm md:text-base"
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
               ></textarea>
               <button
-                type="submit"
-                onClick={() => handleReviewSubmit()}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                type="button"
+                onClick={handleReviewSubmit}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm md:text-base w-full md:w-auto"
               >
                 Submit Review
               </button>
