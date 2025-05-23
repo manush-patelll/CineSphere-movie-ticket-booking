@@ -35,7 +35,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
-console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
 
 app.use(express.json());
 app.use(cookieParser());
