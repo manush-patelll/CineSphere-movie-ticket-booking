@@ -48,7 +48,7 @@ const Booking = () => {
     const { amount, id: order_id, currency } = result.data;
     
     const options = {
-      key: process.env.RAZORPAY_KEY_ID,
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
       amount,
       currency,
       name: "CineSphere",
