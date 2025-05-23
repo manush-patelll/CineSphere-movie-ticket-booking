@@ -51,7 +51,7 @@ const Booking = () => {
       key: "test_t45naGMpFdUPBg",
       amount,
       currency,
-      name: "CeneSphere",
+      name: "CineSphere",
       description: `Payment for ${title}`,
       order_id,
       handler: async function (response) {
