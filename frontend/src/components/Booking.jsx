@@ -46,9 +46,9 @@ const Booking = () => {
     });
 
     const { amount, id: order_id, currency } = result.data;
-    console.log("Razorpay Key:", process.env.VITE_VERCEL_RAZORPAY_KEY_ID);
+    console.log("Razorpay Key:", import.meta.env.VITE_VERCEL_RAZORPAY_KEY_ID);
     const options = {
-      key: process.env.VITE_VERCEL_RAZORPAY_KEY_ID,
+      key:import.meta.env.VITE_VERCEL_RAZORPAY_KEY_ID,
       amount,
       currency,
       name: "CineSphere",
