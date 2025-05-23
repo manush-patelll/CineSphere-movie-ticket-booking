@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import MovieForm from "./MovieForm";
 import ShowtimeForm from "./ShowTimeForm";
 import { getAllMovies } from "../../services/movieService";
-import axios from "../src/api.js";
+import axios from "../api.js";
 import Loading from "../components/Loading";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
