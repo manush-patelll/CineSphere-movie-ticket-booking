@@ -102,7 +102,7 @@ const Booking = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/showtimes/${movie_id}`
+          `/showtimes/${movie_id}`
         );
         const fetchedShows = response.data.data;
         setShows(fetchedShows);
