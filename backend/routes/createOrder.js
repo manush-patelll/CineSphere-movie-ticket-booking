@@ -17,6 +17,7 @@ createOrderRoute.post("/", async (req, res) => {
             currency: "INR",
             receipt: `rcpt_${Math.floor(Math.random() * 10000)}`,
         });
+        console.log("Order create" , order);
         res.json(order);
     } catch (error) {
         console.error("Error creating Razorpay order:", error);
