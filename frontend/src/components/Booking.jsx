@@ -46,9 +46,7 @@ const Booking = () => {
     });
 
     const { amount, id: order_id, currency } = result.data;
-
-    console.log(process.env.RAZORPAY_KEY_ID);
-
+    
     const options = {
       key: process.env.RAZORPAY_KEY_ID,
       amount,
