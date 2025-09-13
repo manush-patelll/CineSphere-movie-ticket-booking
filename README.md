@@ -6,6 +6,7 @@ A web application for browsing movies, showtimes, and booking tickets with role-
 
 ## Table of Contents
 
+* [Deployment](#deployment)
 * [Features](#features)
 * [Tech Stack](#tech-stack)
 * [Architecture](#architecture)
@@ -14,11 +15,15 @@ A web application for browsing movies, showtimes, and booking tickets with role-
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [Running the App](#running-the-app)
-* [Deployment](#deployment)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
+
+---
+## Deployment Link 🔗 
+
+👉 **[https://cine-sphere-movie-ticket-booking.vercel.app/](https://cine-sphere-movie-ticket-booking.vercel.app/)**
 
 ---
 
@@ -132,16 +137,6 @@ CineSphere/
   ```
 
 * Open browser at `http://localhost:3000` (or whatever port frontend runs on) to use the app.
-
----
-
-## Deployment
-
-Once deployed, you can access the live application here:
-
-👉 **[CineSphere Live App](https://your-deployment-link.com)**
-
-*(Replace the above link with your actual Vercel/Render deployment URL.)*
 
 ---
 
