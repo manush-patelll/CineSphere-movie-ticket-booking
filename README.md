@@ -17,7 +17,6 @@ A web application for browsing movies, showtimes, and booking tickets with role-
   * [Running the App](#running-the-app)
 * [Usage](#usage)
 * [Contributing](#contributing)
-* [License](#license)
 * [Contact](#contact)
 
 ---
@@ -161,12 +160,6 @@ Contributions are welcome! Here’s how you can help:
 * Fork the repo, make your changes, and submit a pull request
 * Follow consistent coding style
 * Write tests (if set up)
-
----
-
-## License
-
-MIT License © 2025 Manush Patelll
 
 ---
 
