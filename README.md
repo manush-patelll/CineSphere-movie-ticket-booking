@@ -21,8 +21,10 @@ A web application for browsing movies, showtimes, and booking tickets with role-
 * [Contact](#contact)
 
 ---
-## Deployment Link 🔗 
+## Deployment
 
+ Deployment Link 🔗 
+ 
 👉 **[https://cine-sphere-movie-ticket-booking.vercel.app/](https://cine-sphere-movie-ticket-booking.vercel.app/)**
 
 ---
