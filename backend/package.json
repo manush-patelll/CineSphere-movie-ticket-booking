@@ -27,5 +27,6 @@
     "razorpay": "^2.9.6",
     "stream-buffers": "^3.0.3",
     "uuid": "^11.1.0"
+    "@sendgrid/mail": "^8.1.0"
   }
 }
