@@ -43,7 +43,7 @@ const Signup = () => {
 
   const handleSendOtp = async () => {
     try {
-      await axios.post("/verify-email/send-otp", {
+      await axios.post("https://cinesphere-movie-ticket-booking-backend.onrender.com/verify-email/send-otp", {
         email,
       });
       alert("OTP sent to your email.");
@@ -57,7 +57,7 @@ const Signup = () => {
   const handleVerifyOtp = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/verify-email/verify-otp",
+        "https://cinesphere-movie-ticket-booking-backend.onrender.com/verify-email/verify-otp",
         {
           email,
           otp,
@@ -79,7 +79,7 @@ const Signup = () => {
     if (password !== rePassword) return setError("Passwords do not match.");
 
     try {
-      await axios.post("http://localhost:5000/register", {
+      await axios.post("https://cinesphere-movie-ticket-booking-backend.onrender.com/register", {
         name,
         email,
         password,
