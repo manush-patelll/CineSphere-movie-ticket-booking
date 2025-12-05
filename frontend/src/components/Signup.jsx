@@ -43,7 +43,7 @@ const Signup = () => {
 
   const handleSendOtp = async () => {
     try {
-      await axios.post("http://localhost:5000/verify-email/send-otp", {
+      await axios.post("/verify-email/send-otp", {
         email,
       });
       alert("OTP sent to your email.");
