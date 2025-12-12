@@ -69,7 +69,7 @@ const Booking = () => {
           total_amount: calculateTotal(),
         });
 
-        alert("Payment successful and booking saved!");
+        alert("Payment successful and booking Completed! Check your email inbox/spam for the E-Tecket ");
       },
       prefill: {
         name: user.name,
