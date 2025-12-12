@@ -101,15 +101,15 @@ async function sendBookingPDFEmail(booking) {
     }
 
     // --- 6. Send email via SendGrid (attachments must be base64) ---
-    if (!process.env.SENDGRID_FROM) {
-      throw new Error('SENDGRID_FROM is not set in environment variables');
+    if (!process.env.EMAIL_USER) {
+      throw new Error('EMAIL_USER is not set in environment variables');
     }
 
     const pdfBase64 = pdfBuffer.toString('base64');
 
     const msg = {
       to: recipientEmail,
-      from: process.env.SENDGRID_FROM,
+      from: process.env.EMAIL_USER,
       subject: `Your Booking Confirmation - ${booking.booking_reference}`,
       text: `Dear customer,\n\nPlease find attached your booking details for ${booking.showtime_id.movie_id.title}.\n\nThank you for choosing us!`,
       attachments: [
