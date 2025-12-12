@@ -46,7 +46,7 @@ const Signup = () => {
       await axios.post("https://cinesphere-movie-ticket-booking-backend.onrender.com/verify-email/send-otp", {
         email,
       });
-      alert("OTP sent to your email.");
+      alert("OTP sent to your email. | check your inbox/spam");
       setOtpSent(true);
     } catch (err) {
       console.error(err);
