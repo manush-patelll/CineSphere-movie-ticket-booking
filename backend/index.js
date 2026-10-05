@@ -26,6 +26,7 @@ connectDB();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://10.221.191.123:5173",  // Add your current dev IP
+  "http://localhost:50147", //For Flutter mobile app Web Page
   "https://cine-sphere-movie-ticket-booking.vercel.app/" // Add production frontend too if needed
 ];
 
