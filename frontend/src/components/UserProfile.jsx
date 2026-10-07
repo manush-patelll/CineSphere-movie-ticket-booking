@@ -105,23 +105,23 @@ const UserProfile = () => {
                 >
                   <p>
                     <span className="font-semibold">🎬 Movie:</span>{" "}
-                    {booking.showtime_id.movie_id.title}
+                    {booking.showtime_id?.movie_id?.title || "Not Found"}
                   </p>
                   <p>
                     <span className="font-semibold">🕒 Showtime:</span>{" "}
-                    {formatTime(booking.showtime_id.start_time)}
+                    {formatTime(booking.showtime_id?.start_time || "Not Found")}
                   </p>
                   <p>
                     <span className="font-semibold">🖥️ Screen:</span>{" "}
-                    {booking.screen_id.screenName}
+                    {booking.screen_id?.screenName || "Not Found"}
                   </p>
                   <p>
                     <span className="font-semibold">🎟️ Seats:</span>{" "}
-                    {booking.seats.join(", ")}
+                    {booking.seats?.join(", ")}
                   </p>
                   <p>
                     <span className="font-semibold">💰 Total Amount:</span> ₹
-                    {booking.total_amount}
+                    {booking.total_amount || not found}
                   </p>
                   <button
                     onClick={() => downloadPDF(booking)}
